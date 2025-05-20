@@ -3,7 +3,7 @@
   "name": "ai-humanizer-clipboard",
   "title": "AI Humanizer Clipboard",
   "description": "Removes detection markers and AI tropes.",
-  "icon": "extension-icon.png",
+  "icon": "extension_icon.png",
   "author": "christopher_gee",
   "categories": [
     "Other"

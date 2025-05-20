@@ -1,3 +1,4 @@
 # AI Humanizer Clipboard Changelog
 
-## [Initial Version] - {PR_MERGE_DATE}
+## [1.0.0] - 2024-06-10
+- Initial release
