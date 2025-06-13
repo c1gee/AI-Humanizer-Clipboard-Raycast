@@ -14,17 +14,16 @@ export default async function main() {
       { regex: /[\p{Cf}]/gu, replacement: "" },
       { regex: /[\u00A0\u1680\u2000-\u200A\u202F\u205F\u3000]/g, replacement: " " },
       { regex: /[\u2010-\u2015\u2212]/g, replacement: "-" },
-      {
-        regex: /[\u2018-\u201F\u2032\u2033\u2035\u2036\u00AB\u00BB]/g,
-        replacement: (c: string) => {
-          // Handle apostrophes (including smart quotes used as apostrophes)
-          if (["'", "'", "‚", "‛", "′", "‵"].includes(c)) {
-            return "'";
-          }
-          // Handle quotes
-          return c === '"' || c === '"' || c === "«" || c === "»" ? '"' : '"';
-        },
-      },
+      { regex: /[\u2018\u2019\u2032\u2035\u2036\u201B\u201A\u201C\u201D]/g, replacement: (c: string) => {
+        if (["\u2018", "\u2019", "\u2032", "\u2035", "\u2036", "\u201B", "\u201A"].includes(c)) {
+          return "'";
+        }
+        if (["\u201C", "\u201D"].includes(c)) {
+          return '"';
+        }
+        return c;
+      } },
+      { regex: /[\u00AB\u00BB]/g, replacement: '"' },
       {
         regex: /[\u2026\u2022\u00B7\uFF01-\uFF5E]/g,
         replacement: (c: string) =>
